@@ -2,7 +2,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { SearchIcon } from './icons';
-import ThemeToggle from './ThemeToggle';
 
 interface HeaderProps {
   searchQuery: string;
@@ -37,7 +36,6 @@ const Header: React.FC<HeaderProps> = ({ searchQuery, setSearchQuery }) => {
             >
               Criar Edição
             </Link>
-            <ThemeToggle />
           </div>
         </div>
       </div>
