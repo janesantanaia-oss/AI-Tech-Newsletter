@@ -26,7 +26,12 @@ let mockNewsletters: Newsletter[] = [
 export const getNewsletters = async (): Promise<Newsletter[]> => {
   // Simula um atraso de rede
   await new Promise(resolve => setTimeout(resolve, 500));
-  return Promise.resolve([...mockNewsletters].sort((a, b) => b.issueNumber - a.issueNumber));
+  // Ordena as newsletters pela data de publicação em ordem decrescente (mais recente primeiro)
+  return Promise.resolve(
+    [...mockNewsletters].sort((a, b) => 
+      new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime()
+    )
+  );
 };
 
 export const getNewsletterById = async (id: string): Promise<Newsletter | undefined> => {
